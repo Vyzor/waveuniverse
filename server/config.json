@@ -1,0 +1,20 @@
+{
+  "https_ui_port": 443,
+  "db_connection_dev": {
+    "host": "localhost",
+    "user": "wu_user",
+    "password": "verySecretPassword",
+    "database" : "wu_db",
+    "multipleStatements": true
+  },
+  "redis": {
+
+  },
+  "db_connection": {
+    "host": "localhost",
+    "user": "wu_user",
+    "password": "verySecretPassword",
+    "database" : "wu_db",
+    "multipleStatements": true
+  }
+}

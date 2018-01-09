@@ -1,0 +1,27 @@
+{
+  "name": "wave_universe",
+  "description": "wave_universe",
+  "main": "server.js",
+  "author": "Vyzor",
+  "license": "MIT",
+  "keywords": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "normalize-css": "^5.0.0",
+    "font-awesome": "^4.7",
+    "underscore": "^1.8.3",
+    "bootstrap": "4.0.0-alpha.4",
+    "StickyTableHeaders": "^0.1.19",
+    "moment": "^2.15.2",
+    "humanize-duration": "^3.9.1",
+    "socket.io-client": "^1.7.2"
+  }
+}
