@@ -16,6 +16,44 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `articles`
+--
+
+DROP TABLE IF EXISTS `articles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `articles` (
+  `article_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `subject` varchar(150) NOT NULL,
+  `creation_date` datetime NOT NULL,
+  `text` varchar(350) NOT NULL,
+  PRIMARY KEY (`article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Dumping data for table `articles`
+--
+
+LOCK TABLES `articles` WRITE;
+/*!40000 ALTER TABLE `articles` DISABLE KEYS */;
+INSERT INTO `articles` VALUES (1,'First Article', 'First Author', 'First Subject', '2018-01-10 13:51:00', 'Some test text of first article'),
+(2,'First Article', 'First Author', 'First Subject', '2018-01-10 13:51:00', 'Some test text of first article'),
+(3,'Second Article', 'First Author', 'First Subject', '2018-01-11 13:51:00', 'Some test text of first article'),
+(4,'dsadas Article', 'First Author', 'First Subject', '2018-01-12 13:51:00', 'Some test text of first article'),
+(5,'ssa Article', 'First Author', 'First Subject', '2018-01-13 13:51:00', 'Some test text of first article'),
+(6,'asd Article', 'First Author', 'First Subject', '2018-01-08 13:51:00', 'Some test text of first article'),
+(7,'sd Article', 'First Author', 'First Subject', '2018-01-08 13:51:00', 'Some test text of first article'),
+(8,'asd Article', 'First Author', 'First Subject', '2018-01-10 14:51:00', 'Some test text of first article'),
+(9,'d Article', 'First Author', 'First Subject', '2018-01-10 10:51:00', 'Some test text of first article'),
+(10,'asd Article', 'First Author', 'First Subject', '2018-01-10 12:51:00', 'Some test text of first article');
+/*!40000 ALTER TABLE `articles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `assets`
 --
 

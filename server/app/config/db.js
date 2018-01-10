@@ -6,7 +6,7 @@ try {
     var dbCfg = require(global.__FFpath + '/db.json');
     console.log('use db.cfg');
 } catch (e) {
-    console.log('use config.json');
+    // console.log('use config.json');
 }
 
 var devDb = config.db_connection_dev;
@@ -15,7 +15,7 @@ var env = process.env.NODE_ENV;
 var dbConnection = env === 'production' ? prodDb : devDb;
 
 dbConnection.multipleStatements = true;
-console.log('prod db', dbConnection);
+// console.log('prod db', dbConnection);
 var connection = mysql.createConnection(dbConnection);
 
 module.exports = connection;
