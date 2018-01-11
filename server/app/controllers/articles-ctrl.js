@@ -13,6 +13,7 @@ module.exports.getAllArticles = function (req, res) {
 
     connection.query(query, function (err, rows) {
         if (err) {
+            console.log(err);
             return res.status(400).send(err);
         }
         res.send(rows);

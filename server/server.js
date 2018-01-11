@@ -9,6 +9,7 @@ var config = require(global.__FFpath + '/config.json'), // project config
 // libs
 var passport = require('passport'),
     express = require('express'),
+    cors = require('cors'),
     app = express(),
     // fs = require('fs'),
     https = require('https'),
@@ -22,13 +23,21 @@ var passport = require('passport'),
 // controllers
 var articlesCtrl = require(pathToCtrls + 'articles-ctrl.js');
 
+app.use(cors());
 
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
-app.get('/', function (req, res) {
+// app.use('/public', app.static(global.__FFpath + './../client-app/src', { maxAge: hour3 }));
+
+app.get('/', function (req, res, next) {
     res.send('Hello world!')
 });
 
-app.get('/yo', function (req, res) {
+app.get('/yo', function (req, res, next) {
     res.send('YO!')
 });
 

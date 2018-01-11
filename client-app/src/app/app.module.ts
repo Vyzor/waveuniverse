@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
+import { HttpClientModule } from "@angular/common/http";
+import { HttpModule } from "@angular/http";
 
 
 const appRoutes: Routes = [
@@ -28,6 +30,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],

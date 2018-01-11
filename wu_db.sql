@@ -26,9 +26,11 @@ CREATE TABLE `articles` (
   `article_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `author` varchar(50) NOT NULL,
+  `image_path` varchar(100) NOT NULL,
   `subject` varchar(150) NOT NULL,
   `creation_date` datetime NOT NULL,
   `text` varchar(350) NOT NULL,
+  `views` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`article_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,16 +42,16 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,'First Article', 'First Author', 'First Subject', '2018-01-10 13:51:00', 'Some test text of first article'),
-(2,'First Article', 'First Author', 'First Subject', '2018-01-10 13:51:00', 'Some test text of first article'),
-(3,'Second Article', 'First Author', 'First Subject', '2018-01-11 13:51:00', 'Some test text of first article'),
-(4,'dsadas Article', 'First Author', 'First Subject', '2018-01-12 13:51:00', 'Some test text of first article'),
-(5,'ssa Article', 'First Author', 'First Subject', '2018-01-13 13:51:00', 'Some test text of first article'),
-(6,'asd Article', 'First Author', 'First Subject', '2018-01-08 13:51:00', 'Some test text of first article'),
-(7,'sd Article', 'First Author', 'First Subject', '2018-01-08 13:51:00', 'Some test text of first article'),
-(8,'asd Article', 'First Author', 'First Subject', '2018-01-10 14:51:00', 'Some test text of first article'),
-(9,'d Article', 'First Author', 'First Subject', '2018-01-10 10:51:00', 'Some test text of first article'),
-(10,'asd Article', 'First Author', 'First Subject', '2018-01-10 12:51:00', 'Some test text of first article');
+INSERT INTO `articles` VALUES (1,'Thousand and One Broken Chairs', 'Jackie Chan', ' ', 'History of success', '2018-01-10 13:51:00', 'Chan was born on 7 April 1954, in Hong Kong, as Chan Kong-sang, to Charles and Lee-Lee Chan, refugees from the Chinese Civil War. His mother or parents nicknamed him Pao-pao ("Cannonball") because the energetic child was always rolling around. His parents worked for the French ambassador in Hong Kong, and Chan spent his formative years within the grounds of the consuls residence in the Victoria Peak district...', 356),
+(2,'First Article', 'First Author', ' ', 'First Subject', '2018-01-10 13:51:00', 'Some test text of first article', 154),
+(3,'Second Article', 'First Author', ' ', 'First Subject', '2018-01-11 13:51:00', 'Some test text of first article', 333),
+(4,'dsadas Article', 'First Author', ' ', 'First Subject', '2018-01-12 13:51:00', 'Some test text of first article', 234),
+(5,'ssa Article', 'First Author', ' ', 'First Subject', '2018-01-13 13:51:00', 'Some test text of first article', 108),
+(6,'asd Article', 'First Author', ' ', 'First Subject', '2018-01-08 13:51:00', 'Some test text of first article', 99),
+(7,'sd Article', 'First Author', ' ', 'First Subject', '2018-01-08 13:51:00', 'Some test text of first article', 305),
+(8,'asd Article', 'First Author', ' ', 'First Subject', '2018-01-10 14:51:00', 'Some test text of first article', 143),
+(9,'d Article', 'First Author', ' ', 'First Subject', '2018-01-10 10:51:00', 'Some test text of first article', 175),
+(10,'asd Article', 'First Author', ' ', 'First Subject', '2018-01-10 12:51:00', 'Some test text of first article', 224);
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 

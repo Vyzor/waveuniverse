@@ -1,6 +1,11 @@
-<div class="article-element">
-  <div class="article-title"><h4>{{article.title}}</h4></div>
-  <div class="article-subject"><span>{{article.subject}}</span></div>
-  <div class="article-author"><span>{{article.author}}</span></div>
-  <div class="article-text">{{article.text}}</div>
+<div class="article-element" [ngStyle]="{'transform': article.rotation, 'left': article.horizontal, 'top': article.vertical}">
+  <div class="article-image"><img src="assets/images/test.png"/></div>
+  <div class="article-body">
+    <div class="article-title"><h4>{{article.title}}</h4></div>
+    <div class="article-author"><strong>Author: </strong><span>{{article.author}}</span></div>
+    <div class="article-subject"><strong>Type: </strong><span>{{article.subject}}</span></div>
+    <div class="article-text">{{article.text | slice:0:320}}...</div>
+    <div class="article-views"><strong>Views: </strong>{{article.views}}</div>
+    <div class="article-date"><strong>Published: </strong>{{article.creation_date}}</div>
+  </div>
 </div>
