@@ -1,10 +1,10 @@
 'use strict';
 // configs
-var config = require(global.__FFpath + '/config.json'),
+const config = require(global.__FFpath + '/config.json'),
     pathToCtrls = global.__FFpath + '/app/controllers/';
 
 // libs
-var mysql = require('mysql'),
+const mysql = require('mysql'),
     connection = require(global.__FFpath + '/app/config/db.js');
 
 
@@ -16,7 +16,7 @@ module.exports.getAllArticles = function (req, res) {
             console.log(err);
             return res.status(400).send(err);
         }
-        // console.log(success);
+        console.log(success);
         logArticles(rows);
         res.send(rows);
     });

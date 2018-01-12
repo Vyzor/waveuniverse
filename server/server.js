@@ -10,36 +10,12 @@ var config = require(global.__FFpath + '/config.json'), // project config
 var passport = require('passport'),
     express = require('express'),
     cors = require('cors'),
-    app = express(),
-    // fs = require('fs'),
-    https = require('https'),
-    http = require('http'),
-    // cron = require('node-cron'),
-    // coinPay = require('coinpayments'),
-    // Raven = require('raven'),
-    Async = require('async');
-
+    app = express();
 
 // controllers
 var articlesCtrl = require(pathToCtrls + 'articles-ctrl.js');
 
 app.use(cors());
-
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
-
-// app.use('/public', app.static(global.__FFpath + './../client-app/src', { maxAge: hour3 }));
-
-app.get('/', function (req, res, next) {
-    res.send('Hello world!')
-});
-
-app.get('/yo', function (req, res, next) {
-    res.send('YO!')
-});
 
 app.get('/articles', articlesCtrl.getAllArticles);
 
