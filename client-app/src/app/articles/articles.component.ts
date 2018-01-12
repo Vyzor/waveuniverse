@@ -21,17 +21,22 @@ export class ArticlesComponent implements OnInit {
     // this.articlesService.getArticles();
     this.articles = this.articlesService.articles;
     this.http.get(`http://127.0.0.1:3000/articles`).subscribe(data => {
-      console.log(data);
-      this.articles = data;
-      this.articles = setRotation(this.articles);
-      this.articles = moveArticle(this.articles);
-      // this.articles = dateTransform(this.articles);
+      this.articles = adaptData(data);
     });
   }
 }
 
+function adaptData(data) {
+  data = setRotation(data);
+  data = moveArticle(data);
+  data = dateTransform(data);
+  data = filterByViews(data);
+  // data = oneByOne(data);
+  return data;
+}
+
 function setRotation(articles) {
-  for (let i in articles) {
+  for (var i in articles) {
     let val = Math.random() * 14 - 7;
     articles[i].rotation = 'rotate(' + val + 'deg)'
   }
@@ -39,7 +44,7 @@ function setRotation(articles) {
 }
 
 function moveArticle(articles) {
-  for (let i in articles) {
+  for (var i in articles) {
     let horizontal = Math.random() * 80 - 40,
         vertical = Math.random() * 60 - 30;
     articles[i].horizontal = horizontal + 'px';
@@ -48,9 +53,33 @@ function moveArticle(articles) {
   return articles
 }
 
-// function dateTransform(articles) {
-//   for (let i in articles) {
-//     articles[i].creation_date = 'rotate('  + 'deg)'
-//   }
-//   return articles
-// }
+function dateTransform(articles) {
+  for (var i in articles) {
+    // articles[i].creation_date = articles[i].slice(0,10) + ' ' + articles[i].slice(11,19);
+    articles[i].creation_date = articles[i].creation_date.slice(0,10) + ' ' + articles[i].creation_date.slice(11,19);
+  }
+  return articles
+}
+
+function filterByViews(articles) {
+  for (var i in articles) {
+    articles.sort(function (prev, next) {
+      return next.views - prev.views
+      // return prev.views - next.views
+    })
+  }
+  //
+  return articles
+}
+
+function oneByOne(articles) {
+  for (var i in articles) {
+    articles[i].hidden = false;
+  }
+  for (var i in articles) {
+    setTimeout(function () {
+      articles[i].hidden = true;
+    }, i * 1000)
+  }
+  return articles;
+}

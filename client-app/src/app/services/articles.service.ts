@@ -11,7 +11,6 @@ export class ArticlesService {
   constructor(
     private http: HttpClient
   ) {
-    console.log('lol');
   }
 
   ngOnInit() {

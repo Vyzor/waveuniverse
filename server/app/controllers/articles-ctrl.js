@@ -16,6 +16,15 @@ module.exports.getAllArticles = function (req, res) {
             console.log(err);
             return res.status(400).send(err);
         }
+        // console.log(success);
+        logArticles(rows);
         res.send(rows);
     });
 };
+
+function logArticles(articles) {
+    console.log("Articles: ");
+    for (var i in articles) {
+        console.log(articles[i].title, ' - ', articles[i].author);
+    }
+}
