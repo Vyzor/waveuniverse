@@ -16,7 +16,7 @@ module.exports.getAllArticles = function (req, res) {
             console.log(err);
             return res.status(400).send(err);
         }
-        console.log(success);
+        // console.log(success);
         logArticles(rows);
         res.send(rows);
     });

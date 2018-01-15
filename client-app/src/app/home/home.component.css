@@ -1,0 +1,15 @@
+.home-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 40px;
+}
+
+.home-body {
+  text-align: center;
+  font-size: 31px;
+}
+
+.home-body span {
+  display: block;
+}

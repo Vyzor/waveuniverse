@@ -27,11 +27,12 @@ export class ArticlesComponent implements OnInit {
 }
 
 function adaptData(data) {
+  // debugger;
   data = setRotation(data);
   data = moveArticle(data);
   data = filterByViews(data);
   data = dateTransform(data);
-  // data = oneByOne(data);
+  data = oneByOne(data);
   return data;
 }
 
@@ -55,27 +56,25 @@ function moveArticle(articles) {
 
 function dateTransform(articles) {
   for (var i in articles) {
-    articles[i].creation_date = articles[i].slice(0,10) + ' ' + articles[i].slice(11,19);
+    articles[i].creation_date = articles[i].creation_date.slice(0,10) + ' ' + articles[i].creation_date.slice(11,19);
   }
   return articles
 }
 
 function filterByViews(articles) {
-  for (var i in articles) {
-    articles.sort(function (prev, next) {
-      return prev.views - next.views
-    })
-  }
-  //
+  articles.sort(function (prev, next) {
+    return next.views - prev.views
+  })
   return articles
 }
 
 function oneByOne(articles) {
-  for (var i=0; i <= articles.length - 1; i++) {
+  for (let i=0; i <= articles.length - 1; i++) {
     articles[i].hidden = true;
   }
-  for (var i=0; i <= articles.length - 1; i++) {
+  for (let i=0; i <= articles.length - 1; i++) {
     setTimeout(function () {
+      console.log(i);
       articles[i].hidden = false;
     }, i * 1000)
   }

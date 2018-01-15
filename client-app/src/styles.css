@@ -4,4 +4,6 @@ body {
   background-position-y: 16px;
   background-position-x: -60px;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
