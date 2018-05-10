@@ -11,12 +11,16 @@ import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'articles', component: ArticlesComponent },
-  { path: 'notfound', component: ArticlesComponent }
+  { path: 'notfound', component: ArticlesComponent },
+  { path: 'login', component: LoginFormComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 
@@ -26,7 +30,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     ArticlesComponent,
     HomeComponent,
-    ArticleComponent
+    ArticleComponent,
+    LoginFormComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
