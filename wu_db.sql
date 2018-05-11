@@ -54,3 +54,85 @@ INSERT INTO `articles` VALUES (1,'Thousand and One Broken Chairs', 'Jackie Chan'
 (10,'Some Article Title', 'Unknown', ' ', 'Not Indicated', '2018-01-10 12:51:00', 'Must you with him from him her were more. In eldest be it result should remark vanity square. Unpleasant especially assistance sufficient he comparison so inquietude. Branch one shy edward stairs turned has law wonder horses. Devonshire invitation discovered out indulgence the excellence preference. Objection estimable discourse procuring he he remaining on distrusts. Simplicity affronting inquietude for now sympathize age. She meant new their sex could defer child. An lose at quit to life do dull...', 224);
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(15) NOT NULL,
+  `password` char(60) NOT NULL,
+  `role_id` int(11) unsigned NOT NULL DEFAULT 1,
+  `email` varchar(255) NOT NULL,
+  `address` varchar(255),
+  `country` varchar(255),
+  `city` varchar(255),
+  `postal_code` varchar(255),
+  `level` int(11) NOT NULL DEFAULT 0,
+  `registration_date` datetime DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `balance` decimal(10,2) DEFAULT 10000,
+  `wallet` varchar(255) DEFAULT NULL,
+  `avatar` varchar(15) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `date_of_birth` varchar(10) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `one_time_token` varchar(32) DEFAULT NULL,
+  `isVerified` varchar(255) NOT NULL DEFAULT 'Unverified',
+  `reset_password_token` varchar(255) DEFAULT '0',
+  `reset_password_expires` datetime DEFAULT NULL,
+  `is_banned` int(1) DEFAULT 0,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `password` (`password`),
+  KEY `role_id` (`role_id`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin','$2y$10$Oj4EBDbf5H.4WmKApvRlDetPNpdHZpM6eHITUZaeR1UBOF29ckhZO',2,'cool_host@mail.ru','spartacus 11/1','Moldova','Chisinau','2000',100,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
+(2,'newuser1','$2y$10$LaOIaFlF3qs9SA77o9vwZeWpZ1fa7A9FTvW.XmRwMc.sHqyOclYcy',1,'newuser1@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
+(3,'newuser2','$2y$10$FMLNOX7cc7aGjjc3S6TXDO4.cVHsCOlt.rYaViq4RWcmaLCq.z35.',1,'newuser2@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
+(4,'newuser3','$2y$10$Ex4f8TA7rfzqJwtvQCIb8OoeNr4AvupoZOpa3RKMcECk/rpg5yZLS',1,'newuser3@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
+(5,'newuser4','$2y$10$NwJO55bYNn4HmzepQyNVyOObjh0RziqvLYENs3R3Ch92NnXgGlD42',1,'newuser4@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `transactions`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transactions` (
+  `user_id` int(11) DEFAULT NULL,
+  `friend_id` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `tx_id` varchar(255) DEFAULT NULL,
+  `deposit_url` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions`
+--
+
+LOCK TABLES `transactions` WRITE;
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+UNLOCK TABLES;

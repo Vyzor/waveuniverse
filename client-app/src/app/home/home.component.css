@@ -1,15 +1,145 @@
-.home-title {
-  text-align: center;
-  font-size: 40px;
+.my-account {
+  padding: 20px 40px 0 40px;
+}
+
+.my-account-container {
+  width: 100%;
+  height: 100%;
+}
+
+.my-account-header {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.my-avatar-block {
+  height: 100%;
+  width: 25%;
+  float: left;
+  padding-right: 20px;
+}
+
+.my-avatar-block img {
+  height: 100%;
+  width: 100%;
+}
+
+.my-account-info {
+  height: 100%;
+  width: 75%;
+  float: left;
+}
+
+.my-account-info .user-info {
+  width: 70%;
+  height: 100%;
+  float: left;
+  font-size: 18px;
+  border-right: 1px solid #ccc;
+}
+
+.my-account-info .user-info .user-name {
+  font-size: 28px;
   font-weight: bold;
-  margin: 40px;
 }
 
-.home-body {
+.my-account-info .user-statistics {
+  width: 30%;
+  height: 100%;
+  float: left;
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.user-statistics .amount {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 13px;
+}
+
+.user-statistics .title {
+  font-size: 18px;
+}
+
+.user-friends, .user-messages, .user-balance {
+  width: 100%;
+  height: 33%;
+  float: left;
   text-align: center;
-  font-size: 31px;
+  padding: 13px 0;
 }
 
-.home-body span {
-  display: block;
+.my-account-wall {
+  width: 100%;
 }
+
+.account-post {
+  width: 100%;
+  margin-bottom: 20px;
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.post-header {
+  width: 100%;
+  height: 65px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-header-image {
+  width: 50px;
+  height: 100%;
+  float: left;
+}
+
+.post-header-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.post-header-title {
+  padding-left: 20px;
+  float: left;
+}
+
+.post-content {
+  width: 100%;
+  padding: 10px 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-footer {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.post-footer .like, .post-footer .comment {
+  width: 35px;
+  height: 30px;
+  padding-right: 5px;
+  float: left;
+}
+
+.post-footer .like img, .post-footer .comment img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.like-amount, .comment-amount {
+  float: left;
+  padding-right: 20px;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+

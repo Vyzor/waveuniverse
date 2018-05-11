@@ -1,27 +1,27 @@
 <div class="wave-header">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+  <div class="header-block">
+    <div class="header-container">
 
-      <div class="navbar-header">
-        <a routerLink="/" class="navbar-brand">Don't Touch!</a>
+      <div class="header-logo">
+        <a routerLink="/" class="logo">Socialka!</a>
       </div>
 
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Main</a></li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/articles">Articles List</a></li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/notfound']">404</a></li>
+      <div class="header-menu-container">
+        <ul class="header-menu">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span routerLink="/">My Account</span></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span routerLink="/articles">Messages</span></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span [routerLink]="['/notfound']">Friends</span></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" role="button">Settings <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Log out</a></li>
-            </ul>
-          </li>
-        </ul>
+        <!--<ul class="nav navbar-nav navbar-right">-->
+          <!--<li class="dropdown">-->
+            <!--<a href="#" class="dropdown-toggle" role="button">Settings <span class="caret"></span></a>-->
+            <!--<ul class="dropdown-menu">-->
+              <!--<li><a href="#">Profile</a></li>-->
+              <!--<li><a href="#">Log out</a></li>-->
+            <!--</ul>-->
+          <!--</li>-->
+        <!--</ul>-->
       </div>
     </div>
-  </nav>
+  </div>
 </div>

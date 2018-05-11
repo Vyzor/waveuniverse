@@ -13,14 +13,28 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard }  from './services/auth-guard.service';
 
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'articles', component: ArticlesComponent },
-  { path: 'notfound', component: ArticlesComponent },
-  { path: 'login', component: LoginFormComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: '',
+    component: HomeComponent
+  },
+  { path: 'articles',
+    component: ArticlesComponent
+  },
+  { path: 'notfound',
+    component: ArticlesComponent,
+    resolve: [AuthGuard]
+  },
+  { path: 'login',
+    component: LoginFormComponent,
+
+  },
+  { path: 'register',
+    component: RegisterComponent
+  },
+  { path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 
@@ -45,3 +59,7 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+function isLogged () {
+  return false;
+}
