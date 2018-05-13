@@ -14,18 +14,25 @@ import { HttpModule } from "@angular/http";
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard }  from './services/auth-guard.service';
+import {AuthenticationService} from "./services/authentication.service";
 
 
 const appRoutes: Routes = [
   { path: '',
-    component: HomeComponent
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  { path: 'account',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   { path: 'articles',
-    component: ArticlesComponent
+    component: ArticlesComponent,
+    canActivate: [AuthGuard]
   },
   { path: 'notfound',
     component: ArticlesComponent,
-    resolve: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { path: 'login',
     component: LoginFormComponent,
@@ -55,7 +62,10 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

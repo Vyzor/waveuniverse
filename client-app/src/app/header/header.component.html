@@ -1,4 +1,4 @@
-<div class="wave-header">
+<div class="wave-header" [ngClass]="{'login': userLocation === '/login'}">
   <div class="header-block">
     <div class="header-container">
 
@@ -8,9 +8,10 @@
 
       <div class="header-menu-container">
         <ul class="header-menu">
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span routerLink="/">My Account</span></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span routerLink="/account">My Account</span></li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span routerLink="/articles">Messages</span></li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span [routerLink]="['/notfound']">Friends</span></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span (click)="logoutHandler()">Logout</span></li>
         </ul>
         <!--<ul class="nav navbar-nav navbar-right">-->
           <!--<li class="dropdown">-->

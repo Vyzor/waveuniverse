@@ -116,15 +116,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `transactions` (
+CREATE TABLE `messages` (
   `user_id` int(11) DEFAULT NULL,
   `friend_id` int(11) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `tx_id` varchar(255) DEFAULT NULL,
-  `deposit_url` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL
+  `text` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -132,7 +128,7 @@ CREATE TABLE `transactions` (
 -- Dumping data for table `transactions`
 --
 
-LOCK TABLES `transactions` WRITE;
+LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;

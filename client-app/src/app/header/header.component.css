@@ -3,6 +3,12 @@
   width: 200px;
   height: 100%;
   z-index: 1000;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.wave-header.login {
+  width: 0;
 }
 
 .header-block {

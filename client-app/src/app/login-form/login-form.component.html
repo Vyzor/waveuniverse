@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div class="panel panel-login">
+      <div class="panel panel-login" [ngClass]="{'login': showTab === 'login', 'reg': showTab === 'register'}">
         <div class="panel-heading">
           <div class="row">
             <div class="col-xs-6">
@@ -16,12 +16,12 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-lg-12">
-              <form *ngIf="showTab === 'login'" id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+              <form *ngIf="showTab === 'login'" id="login-form" (ngSubmit)="loginHandler()" role="form" style="display: block;">
                 <div class="form-group">
-                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" [(ngModel)]="loginUser" value="">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" [(ngModel)]="loginPass">
                 </div>
                 <div class="form-group text-center">
                   <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -44,18 +44,18 @@
                   </div>
                 </div>
               </form>
-              <form *ngIf="showTab === 'register'" id="register-form" action="https://phpoll.com/register/process" method="post" role="form">
+              <form *ngIf="showTab === 'register'" id="register-form" (ngSubmit)="signupHandler()" role="form">
                 <div class="form-group">
-                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" [(ngModel)]="regUser" value="">
                 </div>
                 <div class="form-group">
-                  <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                  <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" [(ngModel)]="regEmail" value="">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" [(ngModel)]="regPass">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                  <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" [(ngModel)]="regConfirmPass">
                 </div>
                 <div class="form-group">
                   <div class="row">

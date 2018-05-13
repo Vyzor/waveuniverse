@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService }  from '../services/authentication.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
   showTab: string;
+  loginUser: string;
+  loginPass: string;
+  regUser: string;
+  regPass: string;
+  regEmail: string;
+  regConfirmPass: string;
 
-  constructor() {
+  constructor(private auth: AuthenticationService) {
   }
 
   ngOnInit() {
@@ -17,6 +24,17 @@ export class LoginFormComponent implements OnInit {
 
   switchTo(tab: string): void {
     this.showTab = tab;
+  }
+
+  loginHandler(): void {
+    console.log("LOGIN>>>", this.loginUser, ' ', this.loginPass);
+    if (this.loginUser && this.loginPass) {
+      this.auth.login(this.loginUser, this.loginPass)
+    }
+  }
+
+  signupHandler(): void {
+    console.log("SIGNUP>>>", this.regUser);
   }
 
 }

@@ -21,7 +21,7 @@ export class ArticlesComponent implements OnInit {
     // this.articlesService.getArticles();
     this.articles = this.articlesService.articles;
     this.http.get(`http://127.0.0.1:3000/articles`).subscribe(data => {
-      this.articles = adaptData(data);
+      // this.articles = adaptData(data);
     });
   }
 }
