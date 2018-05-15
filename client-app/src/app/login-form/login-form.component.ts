@@ -11,6 +11,8 @@ export class LoginFormComponent implements OnInit {
   loginUser: string;
   loginPass: string;
   regUser: string;
+  regName: string;
+  regSurname: string;
   regPass: string;
   regEmail: string;
   regConfirmPass: string;
@@ -29,12 +31,15 @@ export class LoginFormComponent implements OnInit {
   loginHandler(): void {
     console.log("LOGIN>>>", this.loginUser, ' ', this.loginPass);
     if (this.loginUser && this.loginPass) {
-      this.auth.login(this.loginUser, this.loginPass)
+      this.auth.login(this.loginUser, this.loginPass);
     }
   }
 
   signupHandler(): void {
     console.log("SIGNUP>>>", this.regUser);
+    if (this.regUser && this.regPass && this.regEmail && this.regConfirmPass && this.regName && this.regSurname && this.regPass === this.regConfirmPass) {
+      this.auth.register(this.regUser, this.regName, this.regSurname, this.regEmail, this.regPass);
+    }
   }
 
 }

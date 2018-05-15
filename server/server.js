@@ -12,12 +12,24 @@ var passport = require('passport'),
     cors = require('cors'),
     app = express();
 
+const bodyParser = require('body-parser');
+
 // controllers
 var articlesCtrl = require(pathToCtrls + 'articles-ctrl.js');
 
 app.use(cors());
+app.use(bodyParser.urlencoded({
+    extended: false,
+    limit: '10mb'
+}));
+app.use(bodyParser.json({
+    limit: '10mb'
+}));
 
 app.get('/articles', articlesCtrl.getAllArticles);
+app.post('/login', articlesCtrl.login);
+app.post('/register', articlesCtrl.register);
+app.post('/get-user', articlesCtrl.getUser);
 
 
 var server = app.listen(3000, function() {

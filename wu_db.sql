@@ -65,13 +65,15 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(15) NOT NULL,
+  `name` varchar(35) NOT NULL,
+  `surname` varchar(35) NOT NULL,
   `password` char(60) NOT NULL,
   `role_id` int(11) unsigned NOT NULL DEFAULT 1,
   `email` varchar(255) NOT NULL,
-  `address` varchar(255),
-  `country` varchar(255),
-  `city` varchar(255),
-  `postal_code` varchar(255),
+  `address` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `postal_code` varchar(255) DEFAULT NULL,
   `level` int(11) NOT NULL DEFAULT 0,
   `registration_date` datetime DEFAULT NULL,
   `last_login` datetime DEFAULT NULL,
@@ -101,16 +103,11 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','$2y$10$Oj4EBDbf5H.4WmKApvRlDetPNpdHZpM6eHITUZaeR1UBOF29ckhZO',2,'cool_host@mail.ru','spartacus 11/1','Moldova','Chisinau','2000',100,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
-(2,'newuser1','$2y$10$LaOIaFlF3qs9SA77o9vwZeWpZ1fa7A9FTvW.XmRwMc.sHqyOclYcy',1,'newuser1@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
-(3,'newuser2','$2y$10$FMLNOX7cc7aGjjc3S6TXDO4.cVHsCOlt.rYaViq4RWcmaLCq.z35.',1,'newuser2@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
-(4,'newuser3','$2y$10$Ex4f8TA7rfzqJwtvQCIb8OoeNr4AvupoZOpa3RKMcECk/rpg5yZLS',1,'newuser3@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0),
-(5,'newuser4','$2y$10$NwJO55bYNn4HmzepQyNVyOObjh0RziqvLYENs3R3Ch92NnXgGlD42',1,'newuser4@newuser123.com','spartacus 11/1','Moldova','Chisinau','2000',0,'2018-05-02 13:51:00','2018-05-02 13:51:00',0.00,'','Avatar1','','','','','','Verified','',null,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `transactions`
+-- Table structure for table `messages`
 --
 
 DROP TABLE IF EXISTS `messages`;
@@ -125,10 +122,10 @@ CREATE TABLE `messages` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `transactions`
+-- Dumping data for table `messages`
 --
 
 LOCK TABLES `messages` WRITE;
-/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;

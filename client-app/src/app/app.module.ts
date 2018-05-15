@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  { path: 'account',
+  { path: 'account/:id',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },

@@ -7,18 +7,18 @@
       <div class="my-account-info">
         <div class="user-info">
           <div class="user-name">
-            <span>Vladimir Murzac</span>
+            <span>{{user.name}} {{user.surname}}</span>
           </div>
           <div class="user-date">
-            <span>Birthday: </span><span>25.01.1995</span>
+            <span>Birthday: </span><span>{{user.date_of_birth}}</span>
           </div>
           <div class="user-country">
-            <span>Country: </span><span>Moldova</span>
+            <span>Country: </span><span>{{user.country}}</span>
           </div>
         </div>
         <div class="user-statistics">
           <div class="user-balance">
-            <div class="amount">6000 SAB</div>
+            <div class="amount">{{user.balance}} SAB</div>
             <div class="title">Balance</div>
           </div>
           <div class="user-friends">
@@ -30,6 +30,12 @@
             <div class="title">Messages</div>
           </div>
         </div>
+      </div>
+      <div class="account-actions">
+        <div class="action">Edit Account</div>
+        <div class="action">Create Post</div>
+        <div class="action">Make Friends</div>
+        <div class="action">Send Message</div>
       </div>
     </div>
     <div class="my-account-wall">

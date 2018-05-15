@@ -9,6 +9,7 @@ import {NavigationEnd, Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
   userLocation: string;
+  user: any;
 
   constructor(private auth: AuthenticationService, private router: Router) {
     router.events.subscribe((val) => {
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   logoutHandler(): void {
