@@ -103,6 +103,75 @@ module.exports.getUser = function (req, res) {
     })
 };
 
+module.exports.createPost = function (req, res) {
+    let user_id = req.body.user_id,
+        author_id = req.body.author_id,
+        author_name = req.body.author_name,
+        text = req.body.text,
+        date = moment().format('YYYY/MM/DD HH:mm:ss'),
+        query = 'INSERT INTO posts (user_id, author_id, author_name, date, text) values (?, ?, ?, ?, ?);';
+
+    console.log("NEW POST!!");
+
+    connection.query(query, [user_id, author_id, author_name, date, text], function (err, rows) {
+        if (err) return res.status(500).send(err);
+        return res.send(rows);
+    })
+};
+
+module.exports.getPosts = function (req, res) {
+    let user_id = req.body.user_id,
+        query = 'SELECT * FROM posts WHERE user_id=?;';
+
+    connection.query(query, [user_id], function (err, rows) {
+        if (err) return res.status(500).send(err);
+        return res.send(rows);
+    })
+};
+
+module.exports.like = function (req, res) {
+    let post_id = req.body.post_id,
+        query = 'UPDATE posts SET likes = likes + 1 WHERE post_id=?;';
+
+    connection.query(query, [post_id], function (err, rows) {
+        if (err) return res.status(500).send(err);
+        return res.send(rows);
+    })
+};
+
+module.exports.comment = function (req, res) {
+    let post_id = req.body.post_id,
+        query = 'UPDATE posts SET comments = comments + 1 WHERE post_id=?;';
+
+    connection.query(query, [post_id], function (err, rows) {
+        if (err) return res.status(500).send(err);
+        return res.send(rows);
+    })
+};
+
+module.exports.getMessages = function (req, res) {
+    let user_id = req.body.user_id,
+        query = 'SELECT * FROM messages WHERE user_id=? or friend_id=?;';
+
+    connection.query(query, [user_id, user_id], function (err, rows) {
+        if (err) return res.status(500).send(err);
+        return res.send(rows);
+    })
+};
+
+module.exports.sendMessage = function (req, res) {
+    let user_id = req.body.user_id,
+        friend_id = req.body.friend_id,
+        date = moment().format('YYYY/MM/DD HH:mm:ss'),
+        text = req.body.text,
+        query = 'INSERT INTO messages (user_id, friend_id, date, text) values (?, ?, ?, ?);';
+
+    connection.query(query, [user_id, friend_id, date, text], function (err, rows) {
+        if (err) return res.status(500).send(err);
+        return res.send(rows);
+    })
+};
+
 function logArticles(articles) {
     console.log("Articles: ");
     for (var i in articles) {

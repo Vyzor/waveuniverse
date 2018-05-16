@@ -9,8 +9,8 @@
       <div class="header-menu-container">
         <ul class="header-menu">
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span [routerLink]="['/account', user.user_id]">My Account</span></li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span routerLink="/articles">Messages</span></li>
-          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span [routerLink]="['/notfound']">Friends</span></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span routerLink="/messages">Messages</span></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span [routerLink]="['/friends']">Friends</span></li>
           <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span (click)="logoutHandler()">Logout</span></li>
         </ul>
         <!--<ul class="nav navbar-nav navbar-right">-->

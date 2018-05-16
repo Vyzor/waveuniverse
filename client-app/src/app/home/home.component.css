@@ -17,6 +17,16 @@
   padding: 20px 20px 5px 20px;
 }
 
+.create-btn {
+  float: right;
+  background: #168ac5;
+  border: 0;
+  font-size: 19px;
+  padding: 5px 25px;
+  border-radius: 5px;
+  color: #fff;
+}
+
 .my-avatar-block {
   height: 220px;
   width: 25%;
@@ -35,6 +45,15 @@
   float: left;
 }
 
+.create-post-block {
+  height: 180px;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
 .account-actions {
   width: 100%;
   float: left;
@@ -43,6 +62,7 @@
   border-top: 1px solid #ccc;
   padding-top: 5px;
   text-align: center;
+  user-select: none;
 }
 
 .account-actions .action {

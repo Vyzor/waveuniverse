@@ -77,7 +77,7 @@ CREATE TABLE `users` (
   `level` int(11) NOT NULL DEFAULT 0,
   `registration_date` datetime DEFAULT NULL,
   `last_login` datetime DEFAULT NULL,
-  `balance` decimal(10,2) DEFAULT 10000,
+  `balance` decimal(10,2) DEFAULT 0,
   `wallet` varchar(255) DEFAULT NULL,
   `avatar` varchar(15) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
@@ -114,10 +114,11 @@ DROP TABLE IF EXISTS `messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `messages` (
-  `user_id` int(11) DEFAULT NULL,
-  `friend_id` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  `text` varchar(255) DEFAULT NULL
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(70) NOT NULL,
+  `friend_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `text` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -128,4 +129,33 @@ CREATE TABLE `messages` (
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `posts` (
+  `post_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `author_id` int(11) NOT NULL,
+  `author_name` varchar(70) NOT NULL,
+  `likes` int(11) NOT NULL DEFAULT 0,
+  `comments` int(11) NOT NULL DEFAULT 0,
+  `date` datetime NOT NULL,
+  `text` varchar(625) NOT NULL,
+  PRIMARY KEY (`post_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `posts`
+--
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;

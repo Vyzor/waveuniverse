@@ -26,11 +26,11 @@ const appRoutes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'articles',
+  { path: 'messages',
     component: ArticlesComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'notfound',
+  { path: 'friends',
     component: ArticlesComponent,
     canActivate: [AuthGuard]
   },

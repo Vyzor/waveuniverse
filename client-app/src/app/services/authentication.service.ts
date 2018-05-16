@@ -53,4 +53,35 @@ export class AuthenticationService {
   //       // this.articles = adaptData(data);
   //     });
   // }
+
+  createPost(userId: number, text: string) {
+    let user = JSON.parse(localStorage.getItem('user')),
+        authorId = +user.user_id,
+        authorName = user.name + ' ' + user.surname;
+    this.http.post('http://127.0.0.1:3000/create-post', { user_id: userId, author_id: authorId, author_name: authorName, text: text })
+      .subscribe(data => {
+        console.log("POST>>>", data);
+      });
+  }
+
+  like(postId: number) {
+    this.http.post('http://127.0.0.1:3000/like', { post_id: postId })
+      .subscribe(data => {
+        console.log("Liked!>>>", data);
+      });
+  }
+
+  comment(postId: number) {
+    this.http.post('http://127.0.0.1:3000/comment', { post_id: postId })
+      .subscribe(data => {
+        console.log("Commented!>>>", data);
+      });
+  }
+
+  sendMessage(userId: number, friendId: number, text: string) {
+    this.http.post('http://127.0.0.1:3000/send-message', { user_id: userId, friend_id: friendId, text: text })
+      .subscribe(data => {
+        console.log("message sent!>>>", data);
+      });
+  }
 }

@@ -11,6 +11,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ArticlesComponent implements OnInit {
   articles: any;
+  messages: any;
 
   constructor(
     private articlesService: ArticlesService,
@@ -18,11 +19,18 @@ export class ArticlesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.http.post('http://127.0.0.1:3000/messages', { user_id: user.user_id })
+      .subscribe(data => {
+        console.log("messages!>>>", data);
+        this.messages = data;
+      });
+
     // this.articlesService.getArticles();
-    this.articles = this.articlesService.articles;
-    this.http.get(`http://127.0.0.1:3000/articles`).subscribe(data => {
-      // this.articles = adaptData(data);
-    });
+    // this.articles = this.articlesService.articles;
+    // this.http.get(`http://127.0.0.1:3000/articles`).subscribe(data => {
+    //   // this.articles = adaptData(data);
+    // });
   }
 }
 

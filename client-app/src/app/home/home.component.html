@@ -32,40 +32,58 @@
         </div>
       </div>
       <div class="account-actions">
-        <div class="action">Edit Account</div>
-        <div class="action">Create Post</div>
-        <div class="action">Make Friends</div>
-        <div class="action">Send Message</div>
+        <div class="action" *ngIf="!isGuest">Edit Account</div>
+        <div class="action" *ngIf="isGuest">Make Friends</div>
+        <div class="action" (click)="openTextBlock('post')">Create Post</div>
+        <div class="action" (click)="openTextBlock('message')">Send Message</div>
+      </div>
+    </div>
+    <div class="create-post-block" *ngIf="onCreatePost">
+      <div class="edit-part">
+        <img src="assets/images/test.png" style="display: inline-block; height: 60px; float: left; margin-right: 20px;">
+        <textarea class="form-control" style="width: calc(100% - 80px); float: left; height: 100px;" [(ngModel)]="postText"></textarea>
+      </div>
+      <div class="clearfix"></div>
+      <div class="actions-part" style="padding: 10px 0; ">
+        <button class="create-btn" (click)="createPost()">Create</button>
+      </div>
+    </div>
+    <div class="create-post-block" *ngIf="onWriteMessage">
+      <div class="edit-part">
+        <img src="assets/images/test.png" style="display: inline-block; height: 60px; float: left; margin-right: 20px;">
+        <textarea class="form-control" style="width: calc(100% - 80px); float: left; height: 100px;" [(ngModel)]="messageText"></textarea>
+      </div>
+      <div class="clearfix"></div>
+      <div class="actions-part" style="padding: 10px 0; ">
+        <button class="create-btn" (click)="sendMessage()">Send</button>
       </div>
     </div>
     <div class="my-account-wall">
-      <div class="account-post">
+      <div class="account-post" *ngFor="let post of posts; let i = index">
         <div class="post-header">
           <div class="post-header-image">
             <img src="assets/images/test.png"/>
           </div>
           <div class="post-header-title">
-            <div style="font-weight: bold;">Vladimir Murzac</div>
-            <div>05.02.2018</div>
+            <div style="font-weight: bold;">{{post.author_name}}</div>
+            <div>{{post.date.substring(0, 10) + ' ' + post.date.substring(11, 19)}}</div>
           </div>
         </div>
         <div class="post-content">
-          Post Content Post Content Post Content Post Content Post Content Post Content Post Content Post Content Post Content
-          Post Content
-          Post ContentPost ContentPost Content Post ContentPost ContentPost ContentPost ContentPost ContentPost Content
+          {{post.text}}
         </div>
         <div class="post-footer">
-          <div class="like">
+          <div class="like" (click)="like(i)">
             <img src="assets/images/Like-icon.png"/>
           </div>
           <div class="like-amount">
-            5
+            {{post.likes}}
           </div>
-          <div class="comment">
+          <div class="comment" (click)="comment(i)">
             <img src="assets/images/comment.png"/>
           </div>
           <div class="comment-amount">
-            2
+            {{post.comments}}
           </div>
           <div class="clearfix"></div>
         </div>

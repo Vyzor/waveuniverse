@@ -30,6 +30,12 @@ app.get('/articles', articlesCtrl.getAllArticles);
 app.post('/login', articlesCtrl.login);
 app.post('/register', articlesCtrl.register);
 app.post('/get-user', articlesCtrl.getUser);
+app.post('/create-post', articlesCtrl.createPost);
+app.post('/get-posts', articlesCtrl.getPosts);
+app.post('/like', articlesCtrl.like);
+app.post('/comment', articlesCtrl.comment);
+app.post('/messages', articlesCtrl.getMessages);
+app.post('/send-message', articlesCtrl.sendMessage);
 
 
 var server = app.listen(3000, function() {
